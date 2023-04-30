@@ -1,0 +1,219 @@
+body {
+  font-family: "Mulish", "Titillium Web", sans-serif;
+  background-color: black;
+}
+
+.background {
+  position: fixed;
+  z-index: -1;
+  left: 0px;
+
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: url("images/bg_home_1.jpg");
+  background-repeat: repeat;
+  background-size: 100%;
+}
+.right-panel-content {
+  background-color: black;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.gradient-overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 40%
+  ); /* Degradê do transparente para o preto */
+}
+
+.face-photo {
+  z-index: 3;
+  padding: 20% 0 5% 0;
+}
+
+.name,
+.title {
+  margin-bottom: 0px; /* Espaçamento entre os textos */
+
+  text-align: center;
+}
+
+.name {
+  font-family: "Titillium Web", sans-serif; /* Fonte */
+  font-size: 3.6vh; /* Tamanho da fonte */
+  font-weight: bold;
+
+  color: #ffffff; /* Cor do texto */
+}
+
+.title {
+  font-family: "Mulish", serif; /* Fonte */
+  font-size: 2vh; /* Tamanho da fonte */
+
+  color: #dddddd; /* Cor do texto */
+}
+
+.subtitle-name {
+  font-family: "Mulish", serif; /* Fonte */
+  font-size: 1.4vh; /* Tamanho da fonte */
+
+  padding: 10% 0% 10% 0%;
+
+  text-align: center;
+
+  color: #ffffff; /* Cor do texto */
+}
+
+.footer-icons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 0 0 20% 0;
+
+  color: #aaaaaa; /* Cor do texto */
+}
+
+/* ------ Flex ------ */
+
+/* ------ Ícones ------ */
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+
+  padding: 0% 3%;
+
+  cursor: pointer;
+}
+
+.icon-container:first-child {
+  padding-left: 0;
+}
+
+.icon-container:last-child {
+  padding-right: 0;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  transition: opacity 0.3s ease; /* Adiciona uma transição suave para a opacidade */
+}
+
+.icon-container:hover .icon {
+  opacity: 0.5; /* Diminui a opacidade ao passar o mouse */
+}
+
+/* ------ Direita ------ */
+
+.title_project {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 100%; /* Adiciona largura máxima */
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(1);
+
+  opacity: 0;
+  color: #ffffff;
+}
+
+.text_project {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  max-width: 100%; /* Adiciona largura máxima */
+  padding: 0;
+
+  color: #ffffff;
+}
+
+/* ------ Texto Hover ------ */
+
+.text_project p {
+  font-family: "Mulish", serif; /* Fonte */
+  font-size: 1.4vh; /* Tamanho da fonte */
+
+  padding: 2vh 1vw;
+
+  color: #ffffff;
+}
+
+.title_project h1 {
+  font-family: "Titillium Web", sans-serif; /* Fonte */
+  font-size: 2vh; /* Tamanho da fonte */
+  font-weight: bold;
+
+  color: #ffffff; /* Cor do texto */
+}
+
+/* ------ Imagem Hover e Zoom ------ */
+
+.image-hover {
+  position: relative;
+
+  overflow: hidden;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image-hover img {
+  width: 100%;
+  height: 100%;
+
+  transition: all 0.3s ease;
+}
+
+.image-hover:hover img {
+  transform: scale(1.1);
+
+  opacity: 0.2;
+}
+.image-hover:hover .title_project {
+  opacity: 1;
+}
+
+/* 670px de largura */
