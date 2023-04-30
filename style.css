@@ -1,0 +1,294 @@
+body {
+  font-family: "Mulish", "Titillium Web", sans-serif;
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  height: 100%;
+}
+
+.left-panel {
+  position: fixed;
+
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+
+  width: 400px;
+  height: 100%;
+
+  background-position: center;
+  background-size: 100%;
+}
+
+.background {
+  position: fixed;
+  z-index: -1;
+  left: 0px;
+
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+
+  width: 400px;
+  height: 100%;
+
+  background-image: url("images/bg_home_1.jpg");
+  background-repeat: repeat-y;
+  background-size: 400px;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 60%
+  ); /* Degradê do transparente para o preto */
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.face-photo {
+  padding: 10% 0 5% 0;
+}
+
+.name,
+.title {
+  margin-bottom: 0px; /* Espaçamento entre os textos */
+
+  text-align: center;
+}
+
+.name {
+  font-family: "Titillium Web", sans-serif; /* Fonte */
+  font-size: 3.6vh; /* Tamanho da fonte */
+  font-weight: bold;
+
+  color: #ffffff; /* Cor do texto */
+}
+
+.title {
+  font-family: "Mulish", serif; /* Fonte */
+  font-size: 2vh; /* Tamanho da fonte */
+
+  color: #dddddd; /* Cor do texto */
+}
+
+.subtitle-name {
+  font-family: "Mulish", serif; /* Fonte */
+  font-size: 1.4vh; /* Tamanho da fonte */
+
+  padding: 10% 0% 10% 0%;
+
+  text-align: center;
+
+  color: #ffffff; /* Cor do texto */
+}
+
+.footer-icons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  color: #aaaaaa; /* Cor do texto */
+}
+
+/* ------ Flex ------ */
+
+/* ------ Ícones ------ */
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+
+  padding: 0% 3%;
+
+  cursor: pointer;
+}
+
+.icon-container:first-child {
+  padding-left: 0;
+}
+
+.icon-container:last-child {
+  padding-right: 0;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  transition: opacity 0.3s ease; /* Adiciona uma transição suave para a opacidade */
+}
+
+.icon-container:hover .icon {
+  opacity: 0.5; /* Diminui a opacidade ao passar o mouse */
+}
+
+/* ------ Direita ------ */
+
+.right-panel {
+  overflow: auto;
+
+  width: calc(
+    100% - 400px
+  ); /* Ajusta a largura da parte direita conforme a largura mínima fixa da parte esquerda */
+  height: 100%;
+  margin-left: 400px; /* Leva em consideração a largura mínima fixa da parte esquerda */
+
+  background-color: black;
+}
+
+.right-panel-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block {
+  flex-basis: 25%;
+
+  text-align: center;
+
+  color: white;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.content-block {
+  position: relative;
+  z-index: 1;
+
+  padding: 0;
+}
+
+.title_project {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 100%; /* Adiciona largura máxima */
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(1);
+
+  opacity: 0;
+  color: #ffffff;
+}
+
+.text_project {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  max-width: 100%; /* Adiciona largura máxima */
+  padding: 0;
+
+  color: #ffffff;
+}
+
+/* ------ Texto Hover ------ */
+
+.text_project p {
+  font-family: "Mulish", serif; /* Fonte */
+  font-size: 1.4vh; /* Tamanho da fonte */
+
+  padding: 2vh 1vw;
+
+  color: #ffffff;
+}
+
+.title_project h1 {
+  font-family: "Titillium Web", sans-serif; /* Fonte */
+  font-size: 2vh; /* Tamanho da fonte */
+  font-weight: bold;
+
+  color: #ffffff; /* Cor do texto */
+}
+
+/* ------ Imagem Hover e Zoom ------ */
+
+.image-hover {
+  position: relative;
+
+  overflow: hidden;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image-hover img {
+  width: 100%;
+  height: 100%;
+
+  transition: all 0.3s ease;
+}
+
+.image-hover:hover img {
+  transform: scale(1.1);
+
+  opacity: 0.2;
+}
+.image-hover:hover .title_project {
+  opacity: 1;
+}
+
+/* ------ Responsividade ------ */
+
+/* Small */
+@media (min-width: 576px) {
+  /* Adicione regras específicas para telas small aqui */
+}
+
+/* Medium */
+@media (min-width: 768px) {
+}
+
+/* Large */
+@media (min-width: 992px) {
+  .block {
+    flex-basis: calc(50% - 40px);
+  }
+}
+
+/* Extra Large */
+@media (min-width: 1200px) {
+  .block {
+    flex-basis: 25%;
+  }
+}
+
+/* Gradiente para telas menores que 768px */
