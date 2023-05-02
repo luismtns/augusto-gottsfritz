@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cormaya - Augusto Gottsfritz</title>
+    <link rel="icon" type="image/png" href="icons/favicon-32x32.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Mulish"
+    />
+
+    <!-- /css -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/modal.css" />
+    <link
+      rel="stylesheet"
+      href="/css/modal-mobile.css"
+      media="only screen and (max-width: 1024px)"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/style.css"
+      media="only screen and (min-width: 1024px)"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/style_vertical.css"
+      media="only screen and (max-width: 1024px)"
+    />
+
     <!-- jQuey -->
     <script
       src="https://code.jquery.com/jquery-3.6.4.min.js"
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
       crossorigin="anonymous"
     ></script>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cormaya - Augusto Gottsfritz</title>
-    <link rel="stylesheet" href="reset.css" />
-    <link
-      rel="stylesheet"
-      href="style.css"
-      media="only screen and (min-width: 1024px)"
-    />
-    <link
-      rel="stylesheet"
-      href="style_vertical.css"
-      media="only screen and (max-width: 1024px)"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Mulish"
-    />
-    <link rel="icon" type="image/png" href="icons/favicon-32x32.png" />
-    <script src="js/background.js"></script>
-    <script src="js/text.js"></script>
+    <!-- /js -->
+    <script type="module" src="js/background.js"></script>
+    <script type="module" src="js/text.js"></script>
     <script type="module" src="js/projects.js"></script>
     <script type="module" src="js/shuffleBlocks.js"></script>
   </head>
   <!DOCTYPE html>
   <body>
-    <div id="project-open"></div>
     <div id="main" class="container">
       <div class="left-panel">
         <div class="background" id="rand-background">
@@ -231,6 +240,13 @@
       <div class="right-panel">
         <div id="project-list" class="right-panel-content"></div>
       </div>
+    </div>
+    <div id="project-modal" class="modal">
+      <div class="header">
+        <!-- ALTERAR por logo final -->
+        <img src="icons/favicon-32x32.png" />
+      </div>
+      <div id="project-modal-content"></div>
     </div>
   </body>
 </html>

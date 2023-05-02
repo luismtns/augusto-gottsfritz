@@ -1,6 +1,31 @@
 body {
   font-family: "Mulish", "Titillium Web", sans-serif;
-  background-color: black;
+  background-color: var(--color-background);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  height: 100%;
+}
+#main .hidden {
+  display: none;
+}
+
+.left-panel {
+  position: fixed;
+
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+
+  width: 400px;
+  height: 100%;
+
+  background-position: center;
+  background-size: 100%;
 }
 
 .background {
@@ -12,20 +37,32 @@ body {
   overflow: hidden;
   align-items: center;
 
-  width: 100%;
+  width: 400px;
   height: 100%;
 
   background-image: url("images/bg_home_1.jpg");
-  background-repeat: repeat;
-  background-size: 100%;
+  background-repeat: repeat-y;
+  background-size: 400px;
 }
-.right-panel-content {
-  background-color: black;
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 60%
+  ); /* Degradê do transparente para o preto */
 }
 
 .content-wrapper {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   display: flex;
   align-items: center;
@@ -36,25 +73,8 @@ body {
   height: 100%;
 }
 
-.gradient-overlay {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 40%
-  ); /* Degradê do transparente para o preto */
-}
-
 .face-photo {
-  z-index: 3;
-  padding: 20% 0 5% 0;
+  padding: 10% 0 5% 0;
 }
 
 .name,
@@ -65,36 +85,35 @@ body {
 }
 
 .name {
-  font-family: "Titillium Web", sans-serif; /* Fonte */
+  font-family: var(--font-family-primary);
   font-size: 3.6vh; /* Tamanho da fonte */
   font-weight: bold;
 
-  color: #ffffff; /* Cor do texto */
+  color: var(--text-color); /* Cor do texto */
 }
 
 .title {
-  font-family: "Mulish", serif; /* Fonte */
+  font-family: var(--font-family-primary); /* Fonte */
   font-size: 2vh; /* Tamanho da fonte */
 
   color: #dddddd; /* Cor do texto */
 }
 
 .subtitle-name {
-  font-family: "Mulish", serif; /* Fonte */
-  font-size: 1.4vh; /* Tamanho da fonte */
+  font-family: var(--font-family-primary); /* Fonte */
+  font-size: 1rem; /* Tamanho da fonte */
 
   padding: 10% 0% 10% 0%;
 
   text-align: center;
 
-  color: #ffffff; /* Cor do texto */
+  color: var(--text-color); /* Cor do texto */
 }
 
 .footer-icons {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  padding: 0 0 20% 0;
 
   color: #aaaaaa; /* Cor do texto */
 }
@@ -135,6 +154,40 @@ body {
 
 /* ------ Direita ------ */
 
+.right-panel {
+  overflow: auto;
+
+  width: calc(
+    100% - 400px
+  ); /* Ajusta a largura da parte direita conforme a largura mínima fixa da parte esquerda */
+  height: 100%;
+  margin-left: 400px; /* Leva em consideração a largura mínima fixa da parte esquerda */
+
+  background-color: var(--color-background);
+}
+
+.right-panel-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block {
+  flex-basis: 25%;
+
+  text-align: center;
+
+  color: var(--text-color);
+  background-color: var(--color-background);
+  overflow: hidden;
+}
+
+.content-block {
+  position: relative;
+  z-index: 1;
+
+  padding: 0;
+}
+
 .title_project {
   position: absolute;
   top: 0;
@@ -154,7 +207,7 @@ body {
   transform: scale(1);
 
   opacity: 0;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .text_project {
@@ -167,26 +220,26 @@ body {
   max-width: 100%; /* Adiciona largura máxima */
   padding: 0;
 
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 /* ------ Texto Hover ------ */
 
 .text_project p {
-  font-family: "Mulish", serif; /* Fonte */
-  font-size: 1.4vh; /* Tamanho da fonte */
+  font-family: var(--font-family-primary); /* Fonte */
+  font-size: 0.75rem; /* Tamanho da fonte */
 
   padding: 2vh 1vw;
 
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .title_project h1 {
-  font-family: "Titillium Web", sans-serif; /* Fonte */
+  font-family: var(--font-family-primary);
   font-size: 2vh; /* Tamanho da fonte */
   font-weight: bold;
 
-  color: #ffffff; /* Cor do texto */
+  color: var(--text-color); /* Cor do texto */
 }
 
 /* ------ Imagem Hover e Zoom ------ */
@@ -216,4 +269,29 @@ body {
   opacity: 1;
 }
 
-/* 670px de largura */
+/* ------ Responsividade ------ */
+
+/* Small */
+@media (min-width: 576px) {
+  /* Adicione regras específicas para telas small aqui */
+}
+
+/* Medium */
+@media (min-width: 768px) {
+}
+
+/* Large */
+@media (min-width: 992px) {
+  .block {
+    flex-basis: calc(50% - 40px);
+  }
+}
+
+/* Extra Large */
+@media (min-width: 1200px) {
+  .block {
+    flex-basis: 25%;
+  }
+}
+
+/* Gradiente para telas menores que 768px */
